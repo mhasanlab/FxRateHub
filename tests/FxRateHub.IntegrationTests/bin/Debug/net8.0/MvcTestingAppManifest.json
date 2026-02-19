@@ -1,0 +1,6 @@
+{
+  "FxRateHub.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "\/media\/mainul\/Software\/FxRateHub\/src\/FxRateHub.API",
+  "FxRateHub.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "\/media\/mainul\/Software\/FxRateHub\/src\/FxRateHub.Application",
+  "FxRateHub.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "\/media\/mainul\/Software\/FxRateHub\/src\/FxRateHub.Domain",
+  "FxRateHub.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "\/media\/mainul\/Software\/FxRateHub\/src\/FxRateHub.Infrastructure"
+}

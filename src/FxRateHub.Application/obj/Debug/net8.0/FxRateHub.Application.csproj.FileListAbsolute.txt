@@ -1,0 +1,15 @@
+/media/mainul/Software/FxRateHub/src/FxRateHub.Application/bin/Debug/net8.0/FxRateHub.Application.deps.json
+/media/mainul/Software/FxRateHub/src/FxRateHub.Application/bin/Debug/net8.0/FxRateHub.Application.dll
+/media/mainul/Software/FxRateHub/src/FxRateHub.Application/bin/Debug/net8.0/FxRateHub.Application.pdb
+/media/mainul/Software/FxRateHub/src/FxRateHub.Application/bin/Debug/net8.0/FxRateHub.Domain.dll
+/media/mainul/Software/FxRateHub/src/FxRateHub.Application/bin/Debug/net8.0/FxRateHub.Domain.pdb
+/media/mainul/Software/FxRateHub/src/FxRateHub.Application/obj/Debug/net8.0/FxRateHub.Application.csproj.AssemblyReference.cache
+/media/mainul/Software/FxRateHub/src/FxRateHub.Application/obj/Debug/net8.0/FxRateHub.Application.GeneratedMSBuildEditorConfig.editorconfig
+/media/mainul/Software/FxRateHub/src/FxRateHub.Application/obj/Debug/net8.0/FxRateHub.Application.AssemblyInfoInputs.cache
+/media/mainul/Software/FxRateHub/src/FxRateHub.Application/obj/Debug/net8.0/FxRateHub.Application.AssemblyInfo.cs
+/media/mainul/Software/FxRateHub/src/FxRateHub.Application/obj/Debug/net8.0/FxRateHub.Application.csproj.CoreCompileInputs.cache
+/media/mainul/Software/FxRateHub/src/FxRateHub.Application/obj/Debug/net8.0/FxRateHu.2A7A0677.Up2Date
+/media/mainul/Software/FxRateHub/src/FxRateHub.Application/obj/Debug/net8.0/FxRateHub.Application.dll
+/media/mainul/Software/FxRateHub/src/FxRateHub.Application/obj/Debug/net8.0/refint/FxRateHub.Application.dll
+/media/mainul/Software/FxRateHub/src/FxRateHub.Application/obj/Debug/net8.0/FxRateHub.Application.pdb
+/media/mainul/Software/FxRateHub/src/FxRateHub.Application/obj/Debug/net8.0/ref/FxRateHub.Application.dll
