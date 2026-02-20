@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FxRateHub.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0b5ac84be5277bcbbff240dc5614cdb6f9941545")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2718d7dde83c6566dbefc0b864defd1a804438d7")]
 [assembly: System.Reflection.AssemblyProductAttribute("FxRateHub.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FxRateHub.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

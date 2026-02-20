@@ -59,27 +59,26 @@ public class RegenerateApiKeyCommandHandler : IRequestHandler<RegenerateApiKeyCo
             return Result<ApiKeyCreatedDto>.Failure("No active API key found. Please generate a new one.");
         }
 
-        // Deactivate the existing API key
-        existingApiKey.IsActive = false;
-
         // Generate new API key
         var newApiKey = _apiKeyService.GenerateApiKey();
         var keyHash = _apiKeyService.HashApiKey(newApiKey);
         var keyPrefix = _apiKeyService.GetKeyPrefix(newApiKey);
 
-        // Create new API key entity
-        var newApiKeyEntity = ApiKey.Create(userId, keyHash, keyPrefix);
+        // Update the existing API key with new values (instead of creating a new record)
+        // Note: We preserve DailyRequestCount and TotalRequestCount to prevent rate limit bypass
+        existingApiKey.KeyHash = keyHash;
+        existingApiKey.KeyPrefix = keyPrefix;
+        existingApiKey.UpdatedAt = DateTime.UtcNow;
 
-        _dbContext.ApiKeys.Add(newApiKeyEntity);
         await _dbContext.SaveChangesAsync(cancellationToken);
 
         // Return the new API key
         var result = new ApiKeyCreatedDto(
-            newApiKeyEntity.Id,
+            existingApiKey.Id,
             newApiKey,
             keyPrefix,
-            newApiKeyEntity.CreatedAt,
-            "Make sure to save this new API key. You won't be able to see it again. Your old API key has been deactivated."
+            existingApiKey.CreatedAt,
+            "Make sure to save this new API key. You won't be able to see it again. Your old API key has been invalidated."
         );
 
         return Result<ApiKeyCreatedDto>.Success(result);

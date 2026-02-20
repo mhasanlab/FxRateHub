@@ -161,6 +161,9 @@ app.UseSwaggerUI(c =>
 // Exception Handling Middleware
 app.UseMiddleware<ExceptionHandlingMiddleware>();
 
+// API Key Authentication Middleware for /api/v1 routes
+app.UseMiddleware<ApiKeyAuthMiddleware>();
+
 app.UseHttpsRedirection();
 
 app.UseCors("AllowAngular");

@@ -889,3 +889,189 @@ Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving 
 2026-02-21 02:11:56.643 +06:00 [INF] Completed request GetApiKeyUsageQuery in 1115ms
 2026-02-21 02:11:56.943 +06:00 [INF] Completed request GetUserDashboardQuery in 3019ms
 2026-02-21 02:11:57.027 +06:00 [INF] HTTP GET /api/user/dashboard responded 200 in 3120.3848 ms
+2026-02-21 02:22:38.597 +06:00 [INF] Scheduler QuartzScheduler_$_NON_CLUSTERED shutting down.
+2026-02-21 02:22:38.685 +06:00 [INF] Scheduler QuartzScheduler_$_NON_CLUSTERED paused.
+2026-02-21 02:22:38.745 +06:00 [INF] Scheduler QuartzScheduler_$_NON_CLUSTERED Shutdown complete.
+2026-02-21 02:23:13.605 +06:00 [INF] Applying database migrations...
+2026-02-21 02:23:20.963 +06:00 [INF] Database migrations applied successfully.
+2026-02-21 02:23:20.965 +06:00 [INF] Seeding database...
+2026-02-21 02:23:22.034 +06:00 [INF] Admin user with email admin@fxratehub.com already exists
+2026-02-21 02:23:22.382 +06:00 [INF] App setting with key SyncIntervalMinutes already exists
+2026-02-21 02:23:22.645 +06:00 [INF] App setting with key DailyRequestLimit already exists
+2026-02-21 02:23:22.902 +06:00 [INF] App setting with key MaintenanceMode already exists
+2026-02-21 02:23:22.909 +06:00 [INF] Database seeding skipped - all records already exist
+2026-02-21 02:23:22.914 +06:00 [INF] Database seeding completed.
+2026-02-21 02:23:22.917 +06:00 [INF] Performing initial exchange rate sync...
+2026-02-21 02:23:23.327 +06:00 [INF] Exchange rates already exist in database (1014 rates). Skipping initial sync.
+2026-02-21 02:23:23.340 +06:00 [INF] Initial exchange rate sync completed.
+2026-02-21 02:23:23.373 +06:00 [INF] FX Rate Hub API is starting...
+2026-02-21 02:23:23.527 +06:00 [INF] Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+2026-02-21 02:23:23.530 +06:00 [INF] Quartz Scheduler created
+2026-02-21 02:23:23.534 +06:00 [INF] JobFactory set to: Quartz.Simpl.MicrosoftDependencyInjectionJobFactory
+2026-02-21 02:23:23.539 +06:00 [INF] RAMJobStore initialized.
+2026-02-21 02:23:23.545 +06:00 [INF] Quartz Scheduler 3.8.1.0 - 'QuartzScheduler' with instanceId 'NON_CLUSTERED' initialized
+2026-02-21 02:23:23.550 +06:00 [INF] Using thread pool 'Quartz.Simpl.DefaultThreadPool', size: 10
+2026-02-21 02:23:23.554 +06:00 [INF] Using job store 'Quartz.Simpl.RAMJobStore', supports persistence: False, clustered: False
+2026-02-21 02:23:23.600 +06:00 [INF] Adding 2 jobs, 2 triggers.
+2026-02-21 02:23:23.613 +06:00 [INF] Adding job: DEFAULT.FxRateSyncJob
+2026-02-21 02:23:23.700 +06:00 [INF] Adding job: DEFAULT.DailyResetJob
+2026-02-21 02:23:23.961 +06:00 [INF] Scheduler QuartzScheduler_$_NON_CLUSTERED started.
+2026-02-21 02:23:51.992 +06:00 [INF] HTTP GET /api-docs/index.html responded 200 in 399.9497 ms
+2026-02-21 02:23:55.905 +06:00 [INF] HTTP GET /api-docs/v1/swagger.json responded 200 in 768.9600 ms
+2026-02-21 02:24:11.849 +06:00 [WRN] Failed to determine the https port for redirect.
+2026-02-21 02:24:13.041 +06:00 [INF] Processing request LoginCommand
+2026-02-21 02:24:15.816 +06:00 [INF] Completed request LoginCommand in 2770ms
+2026-02-21 02:24:15.873 +06:00 [INF] HTTP POST /api/Auth/login responded 200 in 4249.0590 ms
+2026-02-21 02:24:39.434 +06:00 [INF] HTTP GET /api/v1/rates responded 401 in 43.0411 ms
+2026-02-21 02:24:54.289 +06:00 [INF] HTTP GET /api/v1/rates/BDT responded 401 in 6.9334 ms
+2026-02-21 02:25:13.051 +06:00 [INF] HTTP GET /api/v1/convert responded 401 in 3.9475 ms
+2026-02-21 02:25:26.916 +06:00 [INF] Processing request GenerateApiKeyCommand
+2026-02-21 02:25:27.667 +06:00 [INF] Completed request GenerateApiKeyCommand in 746ms
+2026-02-21 02:25:27.768 +06:00 [INF] HTTP POST /api/apikey/generate responded 201 in 1199.0067 ms
+2026-02-21 02:25:41.610 +06:00 [INF] Processing request RegenerateApiKeyCommand
+2026-02-21 02:25:43.249 +06:00 [ERR] An exception occurred in the database while saving changes for context type 'FxRateHub.Infrastructure.Persistence.ApplicationDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot insert duplicate key row in object 'dbo.ApiKeys' with unique index 'IX_ApiKeys_UserId'. The duplicate key value is (404040b3-a3bc-4095-94da-bc963717a1f4).
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryHasMoreRows(Boolean& moreRows)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryReadInternal(Boolean setTimeout, Boolean& more)
+   at Microsoft.Data.SqlClient.SqlDataReader.ReadAsyncExecute(Task task, Object state)
+   at Microsoft.Data.SqlClient.SqlDataReader.InvokeAsyncCall[T](SqlDataReaderBaseAsyncCallContext`1 context)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetAsync(Int32 startCommandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+ClientConnectionId:8c4ee150-10e5-4385-8214-49ccfa3e1d95
+Error Number:2601,State:1,Class:14
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetAsync(Int32 startCommandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot insert duplicate key row in object 'dbo.ApiKeys' with unique index 'IX_ApiKeys_UserId'. The duplicate key value is (404040b3-a3bc-4095-94da-bc963717a1f4).
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryHasMoreRows(Boolean& moreRows)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryReadInternal(Boolean setTimeout, Boolean& more)
+   at Microsoft.Data.SqlClient.SqlDataReader.ReadAsyncExecute(Task task, Object state)
+   at Microsoft.Data.SqlClient.SqlDataReader.InvokeAsyncCall[T](SqlDataReaderBaseAsyncCallContext`1 context)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetAsync(Int32 startCommandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+ClientConnectionId:8c4ee150-10e5-4385-8214-49ccfa3e1d95
+Error Number:2601,State:1,Class:14
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetAsync(Int32 startCommandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+2026-02-21 02:25:43.267 +06:00 [ERR] Error processing request RegenerateApiKeyCommand: An error occurred while saving the entity changes. See the inner exception for details.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot insert duplicate key row in object 'dbo.ApiKeys' with unique index 'IX_ApiKeys_UserId'. The duplicate key value is (404040b3-a3bc-4095-94da-bc963717a1f4).
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryHasMoreRows(Boolean& moreRows)
+   at Microsoft.Data.SqlClient.SqlDataReader.TryReadInternal(Boolean setTimeout, Boolean& more)
+   at Microsoft.Data.SqlClient.SqlDataReader.ReadAsyncExecute(Task task, Object state)
+   at Microsoft.Data.SqlClient.SqlDataReader.InvokeAsyncCall[T](SqlDataReaderBaseAsyncCallContext`1 context)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetAsync(Int32 startCommandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+ClientConnectionId:8c4ee150-10e5-4385-8214-49ccfa3e1d95
+Error Number:2601,State:1,Class:14
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeResultSetAsync(Int32 startCommandIndex, RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.AffectedCountModificationCommandBatch.ConsumeAsync(RelationalDataReader reader, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at FxRateHub.Infrastructure.Persistence.ApplicationDbContext.SaveChangesAsync(CancellationToken cancellationToken) in /media/mainul/Software/FxRateHub/src/FxRateHub.Infrastructure/Persistence/ApplicationDbContext.cs:line 99
+   at FxRateHub.Application.Features.ApiKeys.Commands.RegenerateApiKeyCommandHandler.Handle(RegenerateApiKeyCommand request, CancellationToken cancellationToken) in /media/mainul/Software/FxRateHub/src/FxRateHub.Application/Features/ApiKeys/Commands/RegenerateApiKeyCommand.cs:line 74
+   at FxRateHub.Application.Common.Behaviors.LoggingBehavior`2.Handle(TRequest request, RequestHandlerDelegate`1 next, CancellationToken cancellationToken) in /media/mainul/Software/FxRateHub/src/FxRateHub.Application/Common/Behaviors/LoggingBehavior.cs:line 30
+2026-02-21 02:25:43.311 +06:00 [INF] HTTP POST /api/apikey/regenerate responded 400 in 1734.8633 ms
+2026-02-21 02:36:01.992 +06:00 [INF] Scheduler QuartzScheduler_$_NON_CLUSTERED shutting down.
+2026-02-21 02:36:02.080 +06:00 [INF] Scheduler QuartzScheduler_$_NON_CLUSTERED paused.
+2026-02-21 02:36:02.186 +06:00 [INF] Scheduler QuartzScheduler_$_NON_CLUSTERED Shutdown complete.
+2026-02-21 02:36:40.093 +06:00 [INF] Applying database migrations...
+2026-02-21 02:36:50.216 +06:00 [INF] Database migrations applied successfully.
+2026-02-21 02:36:50.248 +06:00 [INF] Seeding database...
+2026-02-21 02:36:52.167 +06:00 [INF] Admin user with email admin@fxratehub.com already exists
+2026-02-21 02:36:52.563 +06:00 [INF] App setting with key SyncIntervalMinutes already exists
+2026-02-21 02:36:52.817 +06:00 [INF] App setting with key DailyRequestLimit already exists
+2026-02-21 02:36:53.078 +06:00 [INF] App setting with key MaintenanceMode already exists
+2026-02-21 02:36:53.084 +06:00 [INF] Database seeding skipped - all records already exist
+2026-02-21 02:36:53.090 +06:00 [INF] Database seeding completed.
+2026-02-21 02:36:53.096 +06:00 [INF] Performing initial exchange rate sync...
+2026-02-21 02:36:53.643 +06:00 [INF] Exchange rates already exist in database (1014 rates). Skipping initial sync.
+2026-02-21 02:36:53.675 +06:00 [INF] Initial exchange rate sync completed.
+2026-02-21 02:36:53.708 +06:00 [INF] FX Rate Hub API is starting...
+2026-02-21 02:36:54.250 +06:00 [INF] Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+2026-02-21 02:36:54.258 +06:00 [INF] Quartz Scheduler created
+2026-02-21 02:36:54.267 +06:00 [INF] JobFactory set to: Quartz.Simpl.MicrosoftDependencyInjectionJobFactory
+2026-02-21 02:36:54.271 +06:00 [INF] RAMJobStore initialized.
+2026-02-21 02:36:54.274 +06:00 [INF] Quartz Scheduler 3.8.1.0 - 'QuartzScheduler' with instanceId 'NON_CLUSTERED' initialized
+2026-02-21 02:36:54.279 +06:00 [INF] Using thread pool 'Quartz.Simpl.DefaultThreadPool', size: 10
+2026-02-21 02:36:54.283 +06:00 [INF] Using job store 'Quartz.Simpl.RAMJobStore', supports persistence: False, clustered: False
+2026-02-21 02:36:54.334 +06:00 [INF] Adding 2 jobs, 2 triggers.
+2026-02-21 02:36:54.351 +06:00 [INF] Adding job: DEFAULT.FxRateSyncJob
+2026-02-21 02:36:54.451 +06:00 [INF] Adding job: DEFAULT.DailyResetJob
+2026-02-21 02:36:55.173 +06:00 [INF] Scheduler QuartzScheduler_$_NON_CLUSTERED started.
+2026-02-21 02:37:03.348 +06:00 [INF] HTTP GET /api-docs/index.html responded 200 in 419.7565 ms
+2026-02-21 02:37:06.766 +06:00 [INF] HTTP GET /api-docs/v1/swagger.json responded 200 in 965.2396 ms
+2026-02-21 02:37:22.943 +06:00 [WRN] Failed to determine the https port for redirect.
+2026-02-21 02:37:23.844 +06:00 [INF] Processing request LoginCommand
+2026-02-21 02:37:27.012 +06:00 [INF] Completed request LoginCommand in 3154ms
+2026-02-21 02:37:27.479 +06:00 [INF] HTTP POST /api/Auth/login responded 200 in 4785.5269 ms
+2026-02-21 02:37:49.000 +06:00 [INF] HTTP GET /api-docs/index.html responded 200 in 45.7834 ms
+2026-02-21 02:37:50.658 +06:00 [INF] HTTP GET /api-docs/v1/swagger.json responded 200 in 211.7816 ms
+2026-02-21 02:38:23.085 +06:00 [INF] Processing request LoginCommand
+2026-02-21 02:38:25.567 +06:00 [INF] Completed request LoginCommand in 2409ms
+2026-02-21 02:38:25.657 +06:00 [INF] HTTP POST /api/Auth/login responded 200 in 3034.0148 ms
+2026-02-21 02:39:14.726 +06:00 [INF] Processing request GenerateApiKeyCommand
+2026-02-21 02:39:15.948 +06:00 [INF] Completed request GenerateApiKeyCommand in 1202ms
+2026-02-21 02:39:16.454 +06:00 [INF] HTTP POST /api/apikey/generate responded 201 in 2749.3029 ms
+2026-02-21 02:39:40.116 +06:00 [INF] Processing request RegenerateApiKeyCommand
+2026-02-21 02:39:45.758 +06:00 [INF] Completed request RegenerateApiKeyCommand in 5568ms
+2026-02-21 02:39:46.632 +06:00 [INF] HTTP POST /api/apikey/regenerate responded 201 in 6965.2525 ms
+2026-02-21 02:40:40.940 +06:00 [INF] HTTP GET /api/v1/rates responded 200 in 4772.1183 ms
+2026-02-21 02:41:01.719 +06:00 [INF] HTTP GET /api/v1/rates responded 401 in 93.8584 ms
+2026-02-21 02:41:43.056 +06:00 [INF] HTTP GET /api/v1/rates responded 200 in 2462.5672 ms
+2026-02-21 02:41:58.314 +06:00 [INF] Processing request GetUserDashboardQuery
+2026-02-21 02:41:58.346 +06:00 [INF] Processing request GetUserProfileQuery
+2026-02-21 02:41:58.786 +06:00 [INF] Completed request GetUserProfileQuery in 431ms
+2026-02-21 02:41:58.798 +06:00 [INF] Processing request GetApiKeyQuery
+2026-02-21 02:41:59.863 +06:00 [INF] Completed request GetApiKeyQuery in 1058ms
+2026-02-21 02:41:59.874 +06:00 [INF] Processing request GetApiKeyUsageQuery
+2026-02-21 02:42:00.805 +06:00 [INF] Completed request GetApiKeyUsageQuery in 922ms
+2026-02-21 02:42:01.321 +06:00 [INF] Completed request GetUserDashboardQuery in 2995ms
+2026-02-21 02:42:01.518 +06:00 [INF] HTTP GET /api/user/dashboard responded 200 in 3380.1000 ms
+2026-02-21 02:44:33.062 +06:00 [INF] HTTP GET /api-docs/index.html responded 200 in 45.3846 ms
+2026-02-21 02:44:35.983 +06:00 [INF] HTTP GET /api-docs/v1/swagger.json responded 200 in 316.5419 ms
