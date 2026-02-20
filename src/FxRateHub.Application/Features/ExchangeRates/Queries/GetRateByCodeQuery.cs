@@ -27,8 +27,8 @@ public class GetRateByCodeQueryHandler : IRequestHandler<GetRateByCodeQuery, Exc
         
         var rate = await _context.ExchangeRates
             .FirstOrDefaultAsync(r => 
-                r.BaseCurrency.Equals(baseCurrency, StringComparison.OrdinalIgnoreCase) &&
-                r.TargetCurrency.Equals(targetCurrency, StringComparison.OrdinalIgnoreCase),
+                r.BaseCurrency.ToUpper() == baseCurrency &&
+                r.TargetCurrency.ToUpper() == targetCurrency,
             cancellationToken);
         
         if (rate == null)

@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
@@ -59,6 +60,66 @@ public static class DatabaseSeeder
         {
             logger.LogError(ex, "An error occurred while seeding the database");
             throw;
+        }
+    }
+
+    /// <summary>
+    /// Seeds exchange rates from the CurrencyFreaks API if no rates exist in the database.
+    /// </summary>
+    /// <param name="context">The application database context.</param>
+    /// <param name="fxRateProvider">The FX rate provider service.</param>
+    /// <param name="logger">The logger for seeding operations.</param>
+    /// <returns>A task representing the asynchronous seeding operation.</returns>
+    public static async Task SeedExchangeRatesAsync(
+        ApplicationDbContext context,
+        IFxRateProvider fxRateProvider,
+        ILogger logger)
+    {
+        try
+        {
+            // Check if exchange rates already exist
+            var existingRatesCount = await context.ExchangeRates.CountAsync();
+            
+            if (existingRatesCount > 0)
+            {
+                logger.LogInformation("Exchange rates already exist in database ({Count} rates). Skipping initial sync.", existingRatesCount);
+                return;
+            }
+
+            logger.LogInformation("No exchange rates found in database. Performing initial sync from CurrencyFreaks API...");
+
+            // Fetch rates from CurrencyFreaks API
+            var rates = await fxRateProvider.GetLatestRatesAsync("USD");
+
+            if (rates == null || !rates.Any())
+            {
+                logger.LogWarning("No rates received from CurrencyFreaks API during initial sync");
+                return;
+            }
+
+            // Save rates to database
+            var exchangeRates = new List<ExchangeRate>();
+            foreach (var rate in rates)
+            {
+                var exchangeRate = ExchangeRate.Create("USD", rate.Key, rate.Value);
+                exchangeRates.Add(exchangeRate);
+            }
+
+            await context.ExchangeRates.AddRangeAsync(exchangeRates);
+            await context.SaveChangesAsync();
+
+            // Create a sync log entry
+            var syncLog = SyncLog.StartNew();
+            syncLog.Complete(rates.Count);
+            await context.SyncLogs.AddAsync(syncLog);
+            await context.SaveChangesAsync();
+
+            logger.LogInformation("Initial sync completed. {Count} exchange rates saved to database.", rates.Count);
+        }
+        catch (Exception ex)
+        {
+            logger.LogError(ex, "Error occurred during initial exchange rate sync from CurrencyFreaks API");
+            // Don't throw - allow the application to start even if initial sync fails
         }
     }
 

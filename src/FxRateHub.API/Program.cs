@@ -53,11 +53,12 @@ builder.Services.AddSwaggerGen(c =>
     // Bearer token security definition
     c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {
-        Description = "JWT Authorization header using the Bearer scheme. Enter 'Bearer' [space] and then your token.",
+        Description = "JWT Authorization header using the Bearer scheme. Just enter your token (without 'Bearer ' prefix).",
         Name = "Authorization",
         In = ParameterLocation.Header,
-        Type = SecuritySchemeType.ApiKey,
-        Scheme = "Bearer"
+        Type = SecuritySchemeType.Http,
+        Scheme = "bearer",
+        BearerFormat = "JWT"
     });
 
     c.AddSecurityDefinition("X-API-Key", new OpenApiSecurityScheme
@@ -178,6 +179,7 @@ using (var scope = app.Services.CreateScope())
 {
     var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
     var passwordHasher = scope.ServiceProvider.GetRequiredService<FxRateHub.Application.Common.Interfaces.IPasswordHasher>();
+    var fxRateProvider = scope.ServiceProvider.GetRequiredService<FxRateHub.Application.Common.Interfaces.IFxRateProvider>();
     var logger = scope.ServiceProvider.GetRequiredService<ILogger<object>>();
     
     try
@@ -189,6 +191,11 @@ using (var scope = app.Services.CreateScope())
         Log.Information("Seeding database...");
         await DatabaseSeeder.SeedAsync(context, passwordHasher, logger);
         Log.Information("Database seeding completed.");
+        
+        // Seed exchange rates from CurrencyFreaks API if not already present
+        Log.Information("Performing initial exchange rate sync...");
+        await DatabaseSeeder.SeedExchangeRatesAsync(context, fxRateProvider, logger);
+        Log.Information("Initial exchange rate sync completed.");
     }
     catch (Exception ex)
     {

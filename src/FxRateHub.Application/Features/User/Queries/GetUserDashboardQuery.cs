@@ -85,7 +85,7 @@ public class GetUserDashboardQueryHandler : IRequestHandler<GetUserDashboardQuer
 
         // Get all rates for USD base currency
         var rates = await _dbContext.ExchangeRates
-            .Where(r => r.BaseCurrency.Equals(defaultBaseCurrency, StringComparison.OrdinalIgnoreCase))
+            .Where(r => r.BaseCurrency.ToUpper() == defaultBaseCurrency)
             .OrderBy(r => r.TargetCurrency)
             .Take(topCount)
             .ToListAsync(cancellationToken);

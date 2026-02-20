@@ -180,12 +180,12 @@ namespace FxRateHub.Infrastructure.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<decimal>("Rate")
-                        .HasColumnType("decimal(18,8)");
+                        .HasColumnType("decimal(28,8)");
 
                     b.Property<string>("TargetCurrency")
                         .IsRequired()
-                        .HasMaxLength(3)
-                        .HasColumnType("nvarchar(3)");
+                        .HasMaxLength(10)
+                        .HasColumnType("nvarchar(10)");
 
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("datetime2");

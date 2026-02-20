@@ -26,14 +26,14 @@ public class GetLatestRatesQueryHandler : IRequestHandler<GetLatestRatesQuery, E
     {
         var baseCurrency = request.BaseCurrency.ToUpper();
         
-        // Get all rates for the base currency
+        // Get all rates for the base currency from database
         var rates = await _context.ExchangeRates
-            .Where(r => r.BaseCurrency.Equals(baseCurrency, StringComparison.OrdinalIgnoreCase))
+            .Where(r => r.BaseCurrency.ToUpper() == baseCurrency)
             .ToDictionaryAsync(r => r.TargetCurrency, r => r.Rate, cancellationToken);
         
         if (!rates.Any())
         {
-            throw new NotFoundException($"No rates found for base currency '{baseCurrency}'");
+            throw new NotFoundException($"No rates found for base currency '{baseCurrency}'. Please sync exchange rates first.");
         }
         
         return new ExchangeRatesResponseDto(

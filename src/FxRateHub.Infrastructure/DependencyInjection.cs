@@ -4,6 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 using FxRateHub.Infrastructure.Persistence;
 using FxRateHub.Infrastructure.Services;
 using FxRateHub.Application.Common.Interfaces;
+using FxRateHub.Application.Interfaces;
 using FxRateHub.Infrastructure.ExternalServices;
 using FxRateHub.Infrastructure.BackgroundJobs;
 using Quartz;
@@ -32,6 +33,7 @@ public static class DependencyInjection
         services.AddScoped<IPasswordHasher, PasswordHasher>();
         services.AddScoped<ICurrentUserService, CurrentUserService>();
         services.AddScoped<IGoogleAuthService, GoogleAuthService>();
+        services.AddScoped<IExchangeRateService, ExchangeRateService>();
 
         // HttpClient for CurrencyFreaks
         services.AddHttpClient<IFxRateProvider, CurrencyFreaksService>();
