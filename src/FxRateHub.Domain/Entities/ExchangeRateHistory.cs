@@ -19,11 +19,11 @@ public class ExchangeRateHistory
     public string BaseCurrency { get; private set; } = "USD";
 
     [Required]
-    [MaxLength(3)]
-    [Column(TypeName = "nvarchar(3)")]
+    [MaxLength(10)]
+    [Column(TypeName = "nvarchar(10)")]
     public string TargetCurrency { get; private set; } = string.Empty;
 
-    [Column(TypeName = "decimal(18,8)")]
+    [Column(TypeName = "decimal(28,8)")]
     public decimal Rate { get; private set; }
 
     /// <summary>

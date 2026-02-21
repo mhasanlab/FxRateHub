@@ -50,7 +50,7 @@ public static class DependencyInjection
 
         services.AddQuartz(q =>
         {
-            // FxRateSyncJob - runs every hour at minute 0
+            // FxRateSyncJob - runs every 60 minutes (hourly)
             var jobKey = new JobKey("FxRateSyncJob");
             q.AddJob<FxRateSyncJob>(opts => opts.WithIdentity(jobKey));
             q.AddTrigger(opts => opts
