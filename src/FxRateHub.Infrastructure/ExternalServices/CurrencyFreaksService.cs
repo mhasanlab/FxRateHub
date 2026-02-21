@@ -6,8 +6,9 @@ using System.Text.Json.Serialization;
 using System.Threading;
 using System.Threading.Tasks;
 using FxRateHub.Application.Common.Interfaces;
-using Microsoft.Extensions.Configuration;
+using FxRateHub.Infrastructure.Configuration;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 
 namespace FxRateHub.Infrastructure.ExternalServices;
 
@@ -26,15 +27,15 @@ public class CurrencyFreaksService : IFxRateProvider
     /// Creates a new instance of CurrencyFreaksService.
     /// </summary>
     /// <param name="httpClient">HttpClient instance configured for CurrencyFreaks API.</param>
-    /// <param name="configuration">Application configuration.</param>
+    /// <param name="options">Configuration options for CurrencyFreaks API.</param>
     /// <param name="logger">Logger instance.</param>
     public CurrencyFreaksService(
         HttpClient httpClient,
-        IConfiguration configuration,
+        IOptions<CurrencyFreaksOptions> options,
         ILogger<CurrencyFreaksService> logger)
     {
         _httpClient = httpClient;
-        _apiKey = configuration["CurrencyFreaks:ApiKey"] ?? throw new InvalidOperationException("CurrencyFreaks:ApiKey configuration is missing.");
+        _apiKey = options.Value.ApiKey ?? throw new InvalidOperationException("CurrencyFreaks:ApiKey configuration is missing.");
         _logger = logger;
     }
 

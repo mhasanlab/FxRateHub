@@ -1284,3 +1284,27 @@ Error Number:2628,State:1,Class:16
 2026-02-21 02:50:40.800 +06:00 [INF] Processing request GetSyncLogsQuery
 2026-02-21 02:50:41.096 +06:00 [INF] Completed request GetSyncLogsQuery in 290ms
 2026-02-21 02:50:41.109 +06:00 [INF] HTTP GET /api/admin/sync-logs responded 200 in 362.0496 ms
+2026-02-21 11:08:13.939 +06:00 [INF] Applying database migrations...
+2026-02-21 11:08:21.734 +06:00 [INF] Database migrations applied successfully.
+2026-02-21 11:08:21.735 +06:00 [INF] Seeding database...
+2026-02-21 11:08:23.088 +06:00 [INF] Admin user with email admin@fxratehub.com already exists
+2026-02-21 11:08:23.425 +06:00 [INF] App setting with key SyncIntervalMinutes already exists
+2026-02-21 11:08:23.689 +06:00 [INF] App setting with key DailyRequestLimit already exists
+2026-02-21 11:08:23.941 +06:00 [INF] App setting with key MaintenanceMode already exists
+2026-02-21 11:08:23.948 +06:00 [INF] Database seeding skipped - all records already exist
+2026-02-21 11:08:23.954 +06:00 [INF] Database seeding completed.
+2026-02-21 11:08:23.961 +06:00 [INF] Performing initial exchange rate sync...
+2026-02-21 11:08:24.382 +06:00 [INF] Exchange rates already exist in database (1014 rates). Skipping initial sync.
+2026-02-21 11:08:24.389 +06:00 [INF] Initial exchange rate sync completed.
+2026-02-21 11:08:24.403 +06:00 [INF] FX Rate Hub API is starting...
+2026-02-21 11:08:24.497 +06:00 [INF] Initialized Scheduler Signaller of type: Quartz.Core.SchedulerSignalerImpl
+2026-02-21 11:08:24.499 +06:00 [INF] Quartz Scheduler created
+2026-02-21 11:08:24.502 +06:00 [INF] JobFactory set to: Quartz.Simpl.MicrosoftDependencyInjectionJobFactory
+2026-02-21 11:08:24.504 +06:00 [INF] RAMJobStore initialized.
+2026-02-21 11:08:24.506 +06:00 [INF] Quartz Scheduler 3.8.1.0 - 'QuartzScheduler' with instanceId 'NON_CLUSTERED' initialized
+2026-02-21 11:08:24.509 +06:00 [INF] Using thread pool 'Quartz.Simpl.DefaultThreadPool', size: 10
+2026-02-21 11:08:24.512 +06:00 [INF] Using job store 'Quartz.Simpl.RAMJobStore', supports persistence: False, clustered: False
+2026-02-21 11:08:24.549 +06:00 [INF] Adding 2 jobs, 2 triggers.
+2026-02-21 11:08:24.553 +06:00 [INF] Adding job: DEFAULT.FxRateSyncJob
+2026-02-21 11:08:24.586 +06:00 [INF] Adding job: DEFAULT.DailyResetJob
+2026-02-21 11:08:24.767 +06:00 [INF] Scheduler QuartzScheduler_$_NON_CLUSTERED started.
