@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FxRateHub.IntegrationTests")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+29ee147714ad504f92cc8ceba23e8338623fd0d4")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ef7d26cd82b1542adb768b9b83d9f5ec3423cd85")]
 [assembly: System.Reflection.AssemblyProductAttribute("FxRateHub.IntegrationTests")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FxRateHub.IntegrationTests")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
