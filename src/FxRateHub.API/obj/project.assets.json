@@ -5460,19 +5460,19 @@
     ]
   },
   "packageFolders": {
-    "/home/mainul/.nuget/packages/": {}
+    "C:\\Users\\Mainul Hasan\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/media/mainul/Software/FxRateHub/src/FxRateHub.API/FxRateHub.API.csproj",
+      "projectUniqueName": "g:\\FxRateHub\\src\\FxRateHub.API\\FxRateHub.API.csproj",
       "projectName": "FxRateHub.API",
-      "projectPath": "/media/mainul/Software/FxRateHub/src/FxRateHub.API/FxRateHub.API.csproj",
-      "packagesPath": "/home/mainul/.nuget/packages/",
-      "outputPath": "/media/mainul/Software/FxRateHub/src/FxRateHub.API/obj/",
+      "projectPath": "g:\\FxRateHub\\src\\FxRateHub.API\\FxRateHub.API.csproj",
+      "packagesPath": "C:\\Users\\Mainul Hasan\\.nuget\\packages\\",
+      "outputPath": "g:\\FxRateHub\\src\\FxRateHub.API\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/home/mainul/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\Mainul Hasan\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
@@ -5484,8 +5484,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "/media/mainul/Software/FxRateHub/src/FxRateHub.Infrastructure/FxRateHub.Infrastructure.csproj": {
-              "projectPath": "/media/mainul/Software/FxRateHub/src/FxRateHub.Infrastructure/FxRateHub.Infrastructure.csproj"
+            "g:\\FxRateHub\\src\\FxRateHub.Infrastructure\\FxRateHub.Infrastructure.csproj": {
+              "projectPath": "g:\\FxRateHub\\src\\FxRateHub.Infrastructure\\FxRateHub.Infrastructure.csproj"
             }
           }
         }
@@ -5499,8 +5499,7 @@
         "enableAudit": "true",
         "auditLevel": "low",
         "auditMode": "direct"
-      },
-      "SdkAnalysisLevel": "9.0.300"
+      }
     },
     "frameworks": {
       "net8.0": {
@@ -5546,7 +5545,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/9.0.311/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.418/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
