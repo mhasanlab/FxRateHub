@@ -53,8 +53,8 @@ public class ConvertCurrencyQueryHandler : IRequestHandler<ConvertCurrencyQuery,
         // Try to find direct rate
         var directRate = await _context.ExchangeRates
             .FirstOrDefaultAsync(r => 
-                r.BaseCurrency.Equals(fromCurrency, StringComparison.OrdinalIgnoreCase) &&
-                r.TargetCurrency.Equals(toCurrency, StringComparison.OrdinalIgnoreCase),
+                r.BaseCurrency.ToUpper() == fromCurrency &&
+                r.TargetCurrency.ToUpper() == toCurrency,
             cancellationToken);
         
         if (directRate != null)
@@ -73,8 +73,8 @@ public class ConvertCurrencyQueryHandler : IRequestHandler<ConvertCurrencyQuery,
         // Try reverse rate
         var reverseRate = await _context.ExchangeRates
             .FirstOrDefaultAsync(r => 
-                r.BaseCurrency.Equals(toCurrency, StringComparison.OrdinalIgnoreCase) &&
-                r.TargetCurrency.Equals(fromCurrency, StringComparison.OrdinalIgnoreCase),
+                r.BaseCurrency.ToUpper() == toCurrency &&
+                r.TargetCurrency.ToUpper() == fromCurrency,
             cancellationToken);
         
         if (reverseRate != null)

@@ -1,0 +1,12 @@
+/media/mainul/Software/FxRateHub/src/FxRateHub.Domain/bin/Release/net8.0/FxRateHub.Domain.deps.json
+/media/mainul/Software/FxRateHub/src/FxRateHub.Domain/bin/Release/net8.0/FxRateHub.Domain.dll
+/media/mainul/Software/FxRateHub/src/FxRateHub.Domain/bin/Release/net8.0/FxRateHub.Domain.pdb
+/media/mainul/Software/FxRateHub/src/FxRateHub.Domain/obj/Release/net8.0/FxRateHub.Domain.GeneratedMSBuildEditorConfig.editorconfig
+/media/mainul/Software/FxRateHub/src/FxRateHub.Domain/obj/Release/net8.0/FxRateHub.Domain.AssemblyInfoInputs.cache
+/media/mainul/Software/FxRateHub/src/FxRateHub.Domain/obj/Release/net8.0/FxRateHub.Domain.AssemblyInfo.cs
+/media/mainul/Software/FxRateHub/src/FxRateHub.Domain/obj/Release/net8.0/FxRateHub.Domain.csproj.CoreCompileInputs.cache
+/media/mainul/Software/FxRateHub/src/FxRateHub.Domain/obj/Release/net8.0/FxRateHub.Domain.sourcelink.json
+/media/mainul/Software/FxRateHub/src/FxRateHub.Domain/obj/Release/net8.0/FxRateHub.Domain.dll
+/media/mainul/Software/FxRateHub/src/FxRateHub.Domain/obj/Release/net8.0/refint/FxRateHub.Domain.dll
+/media/mainul/Software/FxRateHub/src/FxRateHub.Domain/obj/Release/net8.0/FxRateHub.Domain.pdb
+/media/mainul/Software/FxRateHub/src/FxRateHub.Domain/obj/Release/net8.0/ref/FxRateHub.Domain.dll

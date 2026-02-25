@@ -167,3 +167,4 @@
 /media/mainul/Software/FxRateHub/src/FxRateHub.API/obj/Debug/net8.0/FxRateHub.API.pdb
 /media/mainul/Software/FxRateHub/src/FxRateHub.API/obj/Debug/net8.0/FxRateHub.API.genruntimeconfig.cache
 /media/mainul/Software/FxRateHub/src/FxRateHub.API/obj/Debug/net8.0/ref/FxRateHub.API.dll
+/media/mainul/Software/FxRateHub/src/FxRateHub.API/obj/Debug/net8.0/FxRateHub.API.sourcelink.json

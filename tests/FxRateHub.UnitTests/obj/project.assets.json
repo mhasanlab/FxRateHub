@@ -5551,19 +5551,19 @@
     ]
   },
   "packageFolders": {
-    "/home/mainul/.nuget/packages/": {}
+    "C:\\Users\\Mainul Hasan\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/media/mainul/Software/FxRateHub/tests/FxRateHub.UnitTests/FxRateHub.UnitTests.csproj",
+      "projectUniqueName": "g:\\FxRateHub\\tests\\FxRateHub.UnitTests\\FxRateHub.UnitTests.csproj",
       "projectName": "FxRateHub.UnitTests",
-      "projectPath": "/media/mainul/Software/FxRateHub/tests/FxRateHub.UnitTests/FxRateHub.UnitTests.csproj",
-      "packagesPath": "/home/mainul/.nuget/packages/",
-      "outputPath": "/media/mainul/Software/FxRateHub/tests/FxRateHub.UnitTests/obj/",
+      "projectPath": "g:\\FxRateHub\\tests\\FxRateHub.UnitTests\\FxRateHub.UnitTests.csproj",
+      "packagesPath": "C:\\Users\\Mainul Hasan\\.nuget\\packages\\",
+      "outputPath": "g:\\FxRateHub\\tests\\FxRateHub.UnitTests\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/home/mainul/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\Mainul Hasan\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
@@ -5575,14 +5575,14 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "/media/mainul/Software/FxRateHub/src/FxRateHub.Application/FxRateHub.Application.csproj": {
-              "projectPath": "/media/mainul/Software/FxRateHub/src/FxRateHub.Application/FxRateHub.Application.csproj"
+            "g:\\FxRateHub\\src\\FxRateHub.Application\\FxRateHub.Application.csproj": {
+              "projectPath": "g:\\FxRateHub\\src\\FxRateHub.Application\\FxRateHub.Application.csproj"
             },
-            "/media/mainul/Software/FxRateHub/src/FxRateHub.Domain/FxRateHub.Domain.csproj": {
-              "projectPath": "/media/mainul/Software/FxRateHub/src/FxRateHub.Domain/FxRateHub.Domain.csproj"
+            "g:\\FxRateHub\\src\\FxRateHub.Domain\\FxRateHub.Domain.csproj": {
+              "projectPath": "g:\\FxRateHub\\src\\FxRateHub.Domain\\FxRateHub.Domain.csproj"
             },
-            "/media/mainul/Software/FxRateHub/src/FxRateHub.Infrastructure/FxRateHub.Infrastructure.csproj": {
-              "projectPath": "/media/mainul/Software/FxRateHub/src/FxRateHub.Infrastructure/FxRateHub.Infrastructure.csproj"
+            "g:\\FxRateHub\\src\\FxRateHub.Infrastructure\\FxRateHub.Infrastructure.csproj": {
+              "projectPath": "g:\\FxRateHub\\src\\FxRateHub.Infrastructure\\FxRateHub.Infrastructure.csproj"
             }
           }
         }
@@ -5596,8 +5596,7 @@
         "enableAudit": "true",
         "auditLevel": "low",
         "auditMode": "direct"
-      },
-      "SdkAnalysisLevel": "9.0.300"
+      }
     },
     "frameworks": {
       "net8.0": {
@@ -5646,7 +5645,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/9.0.311/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.418/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

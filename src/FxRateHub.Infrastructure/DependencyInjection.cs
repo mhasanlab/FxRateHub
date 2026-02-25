@@ -4,6 +4,8 @@ using Microsoft.Extensions.DependencyInjection;
 using FxRateHub.Infrastructure.Persistence;
 using FxRateHub.Infrastructure.Services;
 using FxRateHub.Application.Common.Interfaces;
+using FxRateHub.Application.Interfaces;
+using FxRateHub.Infrastructure.Configuration;
 using FxRateHub.Infrastructure.ExternalServices;
 using FxRateHub.Infrastructure.BackgroundJobs;
 using Quartz;
@@ -32,6 +34,10 @@ public static class DependencyInjection
         services.AddScoped<IPasswordHasher, PasswordHasher>();
         services.AddScoped<ICurrentUserService, CurrentUserService>();
         services.AddScoped<IGoogleAuthService, GoogleAuthService>();
+        services.AddScoped<IExchangeRateService, ExchangeRateService>();
+
+        // Configure CurrencyFreaks options
+        services.Configure<CurrencyFreaksOptions>(configuration.GetSection("CurrencyFreaks"));
 
         // HttpClient for CurrencyFreaks
         services.AddHttpClient<IFxRateProvider, CurrencyFreaksService>();
@@ -44,7 +50,7 @@ public static class DependencyInjection
 
         services.AddQuartz(q =>
         {
-            // FxRateSyncJob - runs every hour at minute 0
+            // FxRateSyncJob - runs every 60 minutes (hourly)
             var jobKey = new JobKey("FxRateSyncJob");
             q.AddJob<FxRateSyncJob>(opts => opts.WithIdentity(jobKey));
             q.AddTrigger(opts => opts

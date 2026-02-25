@@ -18,6 +18,10 @@ public class SyncExchangeRatesCommandHandler : IRequestHandler<SyncExchangeRates
     private readonly IFxRateProvider _fxRateProvider;
     private readonly ILogger<SyncExchangeRatesCommandHandler> _logger;
 
+    // Reasonable rate limits to filter out extreme/unusual values
+    private const decimal MaxReasonableRate = 1_000_000_000m;  // 1 billion
+    private const decimal MinReasonableRate = 0.00000001m;
+
     public SyncExchangeRatesCommandHandler(
         IApplicationDbContext context,
         IFxRateProvider fxRateProvider,
@@ -55,6 +59,13 @@ public class SyncExchangeRatesCommandHandler : IRequestHandler<SyncExchangeRates
             {
                 var currency = rate.Key;
                 var rateValue = rate.Value;
+
+                // Skip extreme/unusual rates (e.g., > 1 billion or < 0.00000001)
+                if (rateValue > MaxReasonableRate || rateValue < MinReasonableRate)
+                {
+                    _logger.LogWarning("Skipping extreme rate for {Currency}: {Rate}", currency, rateValue);
+                    continue;
+                }
 
                 var existingRate = await _context.ExchangeRates
                     .FirstOrDefaultAsync(r => r.TargetCurrency == currency, cancellationToken);

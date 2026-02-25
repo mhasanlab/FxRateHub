@@ -17,3 +17,4 @@
 /media/mainul/Software/FxRateHub/src/FxRateHub.Infrastructure/obj/Debug/net8.0/FxRateHub.Infrastructure.pdb
 /media/mainul/Software/FxRateHub/src/FxRateHub.Infrastructure/obj/Debug/net8.0/FxRateHub.Infrastructure.genruntimeconfig.cache
 /media/mainul/Software/FxRateHub/src/FxRateHub.Infrastructure/obj/Debug/net8.0/ref/FxRateHub.Infrastructure.dll
+/media/mainul/Software/FxRateHub/src/FxRateHub.Infrastructure/obj/Debug/net8.0/FxRateHub.Infrastructure.sourcelink.json

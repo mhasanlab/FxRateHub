@@ -2,10 +2,9 @@ using System;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using MediatR;
-using FxRateHub.Application.Features.Auth.Commands.Register;
-using FxRateHub.Application.Features.Auth.Commands.Login;
-using FxRateHub.Application.Features.Auth.Commands.GoogleLogin;
+using FxRateHub.Application.Features.Auth.Commands;
 using FxRateHub.Application.Features.Auth.DTOs;
+using FxRateHub.Application.Common.Models;
 using Microsoft.AspNetCore.Http;
 
 namespace FxRateHub.API.Controllers;
@@ -32,15 +31,12 @@ public class AuthController : ControllerBase
     [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(string))]
     public async Task<IActionResult> Register([FromBody] RegisterCommand command)
     {
-        try
+        var result = await _mediator.Send(command);
+        if (!result.IsSuccess)
         {
-            var result = await _mediator.Send(command);
-            return Ok(result);
+            return BadRequest(result.Error);
         }
-        catch (Exception ex)
-        {
-            return BadRequest(ex.Message);
-        }
+        return Ok(result.Data);
     }
 
     /// <summary>
@@ -53,15 +49,12 @@ public class AuthController : ControllerBase
     [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(string))]
     public async Task<IActionResult> Login([FromBody] LoginCommand command)
     {
-        try
+        var result = await _mediator.Send(command);
+        if (!result.IsSuccess)
         {
-            var result = await _mediator.Send(command);
-            return Ok(result);
+            return BadRequest(result.Error);
         }
-        catch (Exception ex)
-        {
-            return BadRequest(ex.Message);
-        }
+        return Ok(result.Data);
     }
 
     /// <summary>
@@ -74,14 +67,11 @@ public class AuthController : ControllerBase
     [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(string))]
     public async Task<IActionResult> GoogleLogin([FromBody] GoogleLoginCommand command)
     {
-        try
+        var result = await _mediator.Send(command);
+        if (!result.IsSuccess)
         {
-            var result = await _mediator.Send(command);
-            return Ok(result);
+            return BadRequest(result.Error);
         }
-        catch (Exception ex)
-        {
-            return BadRequest(ex.Message);
-        }
+        return Ok(result.Data);
     }
 }

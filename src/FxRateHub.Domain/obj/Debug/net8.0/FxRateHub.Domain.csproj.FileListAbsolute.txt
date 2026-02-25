@@ -9,3 +9,4 @@
 /media/mainul/Software/FxRateHub/src/FxRateHub.Domain/obj/Debug/net8.0/refint/FxRateHub.Domain.dll
 /media/mainul/Software/FxRateHub/src/FxRateHub.Domain/obj/Debug/net8.0/FxRateHub.Domain.pdb
 /media/mainul/Software/FxRateHub/src/FxRateHub.Domain/obj/Debug/net8.0/ref/FxRateHub.Domain.dll
+/media/mainul/Software/FxRateHub/src/FxRateHub.Domain/obj/Debug/net8.0/FxRateHub.Domain.sourcelink.json

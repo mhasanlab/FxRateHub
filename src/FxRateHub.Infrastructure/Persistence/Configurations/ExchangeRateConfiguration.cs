@@ -31,11 +31,11 @@ public class ExchangeRateConfiguration : IEntityTypeConfiguration<ExchangeRate>
 
         builder.Property(e => e.TargetCurrency)
             .IsRequired()
-            .HasMaxLength(3)
-            .HasColumnType("nvarchar(3)");
+            .HasMaxLength(10)
+            .HasColumnType("nvarchar(10)");
 
         builder.Property(e => e.Rate)
-            .HasColumnType("decimal(18,8)");
+            .HasColumnType("decimal(28,8)");
 
         builder.Property(e => e.UpdatedAt)
             .IsRequired();
