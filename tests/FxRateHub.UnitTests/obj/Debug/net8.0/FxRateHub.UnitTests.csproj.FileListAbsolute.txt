@@ -223,3 +223,4 @@
 /media/mainul/Software/FxRateHub/tests/FxRateHub.UnitTests/obj/Debug/net8.0/FxRateHub.UnitTests.pdb
 /media/mainul/Software/FxRateHub/tests/FxRateHub.UnitTests/obj/Debug/net8.0/FxRateHub.UnitTests.genruntimeconfig.cache
 /media/mainul/Software/FxRateHub/tests/FxRateHub.UnitTests/obj/Debug/net8.0/ref/FxRateHub.UnitTests.dll
+/media/mainul/Software/FxRateHub/tests/FxRateHub.UnitTests/obj/Debug/net8.0/FxRateHub.UnitTests.sourcelink.json

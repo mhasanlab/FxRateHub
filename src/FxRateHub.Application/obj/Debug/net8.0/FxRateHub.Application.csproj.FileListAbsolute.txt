@@ -13,3 +13,4 @@
 /media/mainul/Software/FxRateHub/src/FxRateHub.Application/obj/Debug/net8.0/refint/FxRateHub.Application.dll
 /media/mainul/Software/FxRateHub/src/FxRateHub.Application/obj/Debug/net8.0/FxRateHub.Application.pdb
 /media/mainul/Software/FxRateHub/src/FxRateHub.Application/obj/Debug/net8.0/ref/FxRateHub.Application.dll
+/media/mainul/Software/FxRateHub/src/FxRateHub.Application/obj/Debug/net8.0/FxRateHub.Application.sourcelink.json

@@ -569,3 +569,4 @@
 /media/mainul/Software/FxRateHub/tests/FxRateHub.IntegrationTests/obj/Debug/net8.0/FxRateHub.IntegrationTests.pdb
 /media/mainul/Software/FxRateHub/tests/FxRateHub.IntegrationTests/obj/Debug/net8.0/FxRateHub.IntegrationTests.genruntimeconfig.cache
 /media/mainul/Software/FxRateHub/tests/FxRateHub.IntegrationTests/obj/Debug/net8.0/ref/FxRateHub.IntegrationTests.dll
+/media/mainul/Software/FxRateHub/tests/FxRateHub.IntegrationTests/obj/Debug/net8.0/FxRateHub.IntegrationTests.sourcelink.json

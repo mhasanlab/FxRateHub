@@ -2,11 +2,13 @@ using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 using System.Threading;
 using System.Threading.Tasks;
 using FxRateHub.Application.Common.Interfaces;
-using Microsoft.Extensions.Configuration;
+using FxRateHub.Infrastructure.Configuration;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 
 namespace FxRateHub.Infrastructure.ExternalServices;
 
@@ -24,16 +26,16 @@ public class CurrencyFreaksService : IFxRateProvider
     /// <summary>
     /// Creates a new instance of CurrencyFreaksService.
     /// </summary>
-    /// <param name="httpClientFactory">Factory for creating HttpClient instances.</param>
-    /// <param name="configuration">Application configuration.</param>
+    /// <param name="httpClient">HttpClient instance configured for CurrencyFreaks API.</param>
+    /// <param name="options">Configuration options for CurrencyFreaks API.</param>
     /// <param name="logger">Logger instance.</param>
     public CurrencyFreaksService(
-        IHttpClientFactory httpClientFactory,
-        IConfiguration configuration,
+        HttpClient httpClient,
+        IOptions<CurrencyFreaksOptions> options,
         ILogger<CurrencyFreaksService> logger)
     {
-        _httpClient = httpClientFactory.CreateClient("CurrencyFreaks");
-        _apiKey = configuration["CurrencyFreaks:ApiKey"] ?? throw new InvalidOperationException("CurrencyFreaks:ApiKey configuration is missing.");
+        _httpClient = httpClient;
+        _apiKey = options.Value.ApiKey ?? throw new InvalidOperationException("CurrencyFreaks:ApiKey configuration is missing.");
         _logger = logger;
     }
 
@@ -56,11 +58,13 @@ public class CurrencyFreaksService : IFxRateProvider
             }
 
             var jsonContent = await response.Content.ReadAsStringAsync(cancellationToken);
+            _logger.LogDebug("CurrencyFreaks API response: {JsonContent}", jsonContent);
+            
             var currencyFreaksResponse = JsonSerializer.Deserialize<CurrencyFreaksResponse>(jsonContent);
 
             if (currencyFreaksResponse?.Rates == null)
             {
-                _logger.LogError("Failed to deserialize CurrencyFreaks response or rates are null");
+                _logger.LogError("Failed to deserialize CurrencyFreaks response or rates are null. Response content: {JsonContent}", jsonContent);
                 throw new InvalidOperationException("Invalid response from CurrencyFreaks API");
             }
 
@@ -88,8 +92,13 @@ public class CurrencyFreaksService : IFxRateProvider
     /// </summary>
     private class CurrencyFreaksResponse
     {
+        [JsonPropertyName("date")]
         public string? Date { get; set; }
+        
+        [JsonPropertyName("base")]
         public string? Base { get; set; }
+        
+        [JsonPropertyName("rates")]
         public Dictionary<string, string>? Rates { get; set; }
     }
 }

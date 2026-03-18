@@ -7264,19 +7264,19 @@
     ]
   },
   "packageFolders": {
-    "/home/mainul/.nuget/packages/": {}
+    "C:\\Users\\Mainul Hasan\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/media/mainul/Software/FxRateHub/tests/FxRateHub.IntegrationTests/FxRateHub.IntegrationTests.csproj",
+      "projectUniqueName": "g:\\FxRateHub\\tests\\FxRateHub.IntegrationTests\\FxRateHub.IntegrationTests.csproj",
       "projectName": "FxRateHub.IntegrationTests",
-      "projectPath": "/media/mainul/Software/FxRateHub/tests/FxRateHub.IntegrationTests/FxRateHub.IntegrationTests.csproj",
-      "packagesPath": "/home/mainul/.nuget/packages/",
-      "outputPath": "/media/mainul/Software/FxRateHub/tests/FxRateHub.IntegrationTests/obj/",
+      "projectPath": "g:\\FxRateHub\\tests\\FxRateHub.IntegrationTests\\FxRateHub.IntegrationTests.csproj",
+      "packagesPath": "C:\\Users\\Mainul Hasan\\.nuget\\packages\\",
+      "outputPath": "g:\\FxRateHub\\tests\\FxRateHub.IntegrationTests\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/home/mainul/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\Mainul Hasan\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
@@ -7288,8 +7288,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "/media/mainul/Software/FxRateHub/src/FxRateHub.API/FxRateHub.API.csproj": {
-              "projectPath": "/media/mainul/Software/FxRateHub/src/FxRateHub.API/FxRateHub.API.csproj"
+            "g:\\FxRateHub\\src\\FxRateHub.API\\FxRateHub.API.csproj": {
+              "projectPath": "g:\\FxRateHub\\src\\FxRateHub.API\\FxRateHub.API.csproj"
             }
           }
         }
@@ -7303,8 +7303,7 @@
         "enableAudit": "true",
         "auditLevel": "low",
         "auditMode": "direct"
-      },
-      "SdkAnalysisLevel": "9.0.300"
+      }
     },
     "frameworks": {
       "net8.0": {
@@ -7351,7 +7350,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/9.0.311/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.418/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
